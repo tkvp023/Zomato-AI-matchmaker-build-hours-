@@ -1,0 +1,12 @@
+datasets==5.0.0
+pandas==3.0.3
+pydantic==2.13.4
+pydantic-settings==2.14.1
+python-dotenv==1.2.2
+groq==1.4.0
+rapidfuzz==3.14.5
+streamlit==1.58.0
+pytest==9.1.0
+fastapi==0.115.8
+uvicorn[standard]==0.34.0
+httpx==0.28.1
