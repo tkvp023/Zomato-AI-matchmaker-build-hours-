@@ -28,10 +28,11 @@ htmlcov/
 *.cover
 
 # ==============================
-# Dataset cache (large parquet)
+# Dataset cache (large files)
 # ==============================
 data/cache/*
 !data/cache/.gitkeep
+!data/cache/*.parquet
 
 # ==============================
 # Node / Frontend

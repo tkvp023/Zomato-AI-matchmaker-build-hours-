@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -60,6 +61,11 @@ origins = [
     "http://127.0.0.1:5173",
     "http://127.0.0.1:8000",
 ]
+
+# Add production frontend URL from environment (e.g., Vercel deployment)
+frontend_url = os.getenv("FRONTEND_URL", "")
+if frontend_url:
+    origins.append(frontend_url)
 
 app.add_middleware(
     CORSMiddleware,
