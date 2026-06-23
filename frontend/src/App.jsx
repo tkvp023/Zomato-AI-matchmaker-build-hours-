@@ -18,6 +18,7 @@ function App() {
   const { 
     metadata, 
     metadataLoading, 
+    metadataError,
     recommendations, 
     loading, 
     error, 
@@ -48,6 +49,21 @@ function App() {
                 <div className="loading-dots">
                   <div className="pulse-dot"></div>
                 </div>
+              </div>
+            ) : metadataError ? (
+              <div className="glass-panel" style={{ textAlign: 'center', padding: '40px 24px', maxWidth: 560, margin: '0 auto' }}>
+                <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>⚠️</div>
+                <h3 style={{ color: 'var(--text-primary)', marginBottom: 8 }}>Backend Unavailable</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                  {metadataError}
+                </p>
+                <button 
+                  className="btn-glass" 
+                  style={{ marginTop: 20 }} 
+                  onClick={() => window.location.reload()}
+                >
+                  ↻ Retry Connection
+                </button>
               </div>
             ) : (
               <PreferenceForm 

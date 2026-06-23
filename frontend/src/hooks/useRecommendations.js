@@ -7,6 +7,7 @@ export function useRecommendations() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [metadataLoading, setMetadataLoading] = useState(true);
+  const [metadataError, setMetadataError] = useState(null);
 
   // Load metadata on mount
   useEffect(() => {
@@ -16,6 +17,7 @@ export function useRecommendations() {
         setMetadata(data);
       } catch (err) {
         console.error("Failed to load metadata", err);
+        setMetadataError('Could not connect to the backend API. Please check that the server is running.');
       } finally {
         setMetadataLoading(false);
       }
@@ -46,6 +48,7 @@ export function useRecommendations() {
   return {
     metadata,
     metadataLoading,
+    metadataError,
     recommendations,
     loading,
     error,
